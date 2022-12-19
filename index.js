@@ -1,12 +1,22 @@
 let scores = [];
 
 for (let i = 0; i < 6; i++) {
-  setScores();
+  setScores(14);
   scores = [];
 }
 
-function rollD6() {
-  return Math.floor(Math.random() * 6) + 1;
+function setScores(min) {
+  for (let i = 0; i < 6; i++) {
+    let score = getAbilityScore();
+
+    while (score < min) {
+      score = getAbilityScore();
+    }
+
+    scores.push(score);
+  }
+
+  console.log(scores.sort((a, b) => b - a));
 }
 
 function getAbilityScore() {
@@ -22,16 +32,6 @@ function getAbilityScore() {
   return values.reduce((total, value) => total += value);
 }
 
-function setScores() {
-  for (let i = 0; i < 6; i++) {
-    let score = getAbilityScore();
-
-    while (score < 12) {
-      score = getAbilityScore();
-    }
-
-    scores.push(score);
-  }
-
-  console.log(scores.sort((a,b) => b - a));
+function rollD6() {
+  return Math.floor(Math.random() * 6) + 1;
 }
