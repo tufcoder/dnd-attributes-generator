@@ -11,7 +11,7 @@ function getScores(totalOfAttributes) {
     scores[i] = getRule();
   }
 
-  return scores.sort((a, b) => b - a);
+  return scores;
 }
 
 function getRule() {
@@ -29,8 +29,7 @@ function setMinimalScore(rule) {
 }
 
 function ruleRoll4D6() {
-  const values = rollDice(4, 6);
-  values.sort((a, b) => b - a);
+  const values = sortDESC(rollDice(4, 6));
   values.pop();
 
   const total = values.reduce((accumulator, value) =>
@@ -39,16 +38,38 @@ function ruleRoll4D6() {
   return total;
 }
 
-function rule10Plus1D8() {
+function ruleRoll1D8Plus10() {
   const values = rollDice(1, 8);
 
-  return 10 + values[0];
+  return values[0] + 10;
 }
 
-function rule8Plus1D10() {
+function ruleRoll1D10Plus8() {
   const values = rollDice(1, 10);
 
-  return 8 + values[0];
+  return values[0] + 8;
+}
+
+function ruleRoll3D6() {
+  let numbers = new Array(7);
+  let values = new Array(3);
+  let total = 0;
+
+  for (let i = 0; i < 7; i++) {
+    values = rollDice(3, 6);
+
+    total = values.reduce((accumulator, value) =>
+      accumulator += value, 0);
+
+    numbers[i] = total;
+
+    values = new Array(3);
+    total = 0;
+  }
+
+  numbers = sortDESC(numbers);
+
+  return numbers[0];
 }
 
 function rollDice(total, dice) {
@@ -63,4 +84,12 @@ function rollDice(total, dice) {
 
 function getRandomNumber(min, total) {
   return Math.floor(Math.random() * total) + min;
+}
+
+function sortASC(array) {
+  return array.sort((a, b) => a - b);
+}
+
+function sortDESC(array) {
+  return array.sort((a, b) => b - a);
 }
