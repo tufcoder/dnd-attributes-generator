@@ -1,0 +1,37 @@
+let scores = [];
+
+for (let i = 0; i < 6; i++) {
+  setScores(12);
+  scores = [];
+}
+
+function setScores(min) {
+  for (let i = 0; i < 6; i++) {
+    let score = getAbilityScore();
+
+    while (score < min) {
+      score = getAbilityScore();
+    }
+
+    scores.push(score);
+  }
+
+  console.log(scores.sort((a, b) => b - a));
+}
+
+function getAbilityScore() {
+  const values = [];
+
+  for (let i = 0; i < 4; i++) {
+    values.push(rollD6());
+  }
+
+  values.sort((a, b) => b - a);
+  values.pop();
+
+  return values.reduce((total, value) => total += value);
+}
+
+function rollD6() {
+  return Math.floor(Math.random() * 6) + 1;
+}

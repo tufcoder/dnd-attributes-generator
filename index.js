@@ -1,37 +1,46 @@
-let scores = [];
+const MAX_ATTRIBUTES = 6;
+const MINIMAL_SCORE = 12;
 
-for (let i = 0; i < 6; i++) {
-  setScores(14);
-  scores = [];
-}
+function getScores(totalOfAttributes) {
+  const scores = new Array(totalOfAttributes);
 
-function setScores(min) {
-  for (let i = 0; i < 6; i++) {
-    let score = getAbilityScore();
-
-    while (score < min) {
-      score = getAbilityScore();
-    }
-
-    scores.push(score);
+  for (let i = 0; i < totalOfAttributes; i++) {
+    scores[i] = (setMinimalScore(roll4D6()));
   }
 
-  console.log(scores.sort((a, b) => b - a));
+  return scores;
 }
 
-function getAbilityScore() {
-  const values = [];
-
-  for (let i = 0; i < 4; i++) {
-    values.push(rollD6());
+function setMinimalScore(score) {
+  while (score < MINIMAL_SCORE) {
+    score = roll4D6();
   }
 
+  return score;
+}
+
+function roll4D6() {
+  const values = rollDice(4, 6);
   values.sort((a, b) => b - a);
   values.pop();
 
-  return values.reduce((total, value) => total += value);
+  let total = values.reduce((total, value) => total += value);
+
+  return total;
 }
 
-function rollD6() {
-  return Math.floor(Math.random() * 6) + 1;
+function rollDice(number, dice) {
+  const numbers = new Array(number);
+
+  for (let i = 0; i < number; i++) {
+    numbers[i] = getRandomNumber(dice);
+  }
+
+  return numbers;
 }
+
+function getRandomNumber(number) {
+  return Math.floor(Math.random() * number) + 1;
+}
+
+console.log(getScores(MAX_ATTRIBUTES));
