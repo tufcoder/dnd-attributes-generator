@@ -1,5 +1,6 @@
 const MAX_ATTRIBUTES = 6;
-const MINIMAL_SCORE = 13;
+const MINIMAL_SCORE = 12;
+const RULE = ruleRoll4D6;
 
 console.log(getScores(MAX_ATTRIBUTES));
 
@@ -14,7 +15,7 @@ function getScores(totalOfAttributes) {
 }
 
 function getRule() {
-  return (setMinimalScore(ruleRoll4D6));
+  return (setMinimalScore(RULE));
 }
 
 function setMinimalScore(rule) {
