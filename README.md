@@ -3,6 +3,15 @@
 This project is practical. In it I apply the **Single Responsibility** principle of SOLID and **Clean Code**.
 These smaller projects are great for training.
 
+## Content
+
+* [Ability Score](#ability-score)
+* [Generator Rules](#generator-rules)
+* [Source Code Explained](#source-code-explained)
+* [How To Run The Code](#how-to-run-the-code)
+* [How Edit The Code](#how-edit-the-code)
+* [What I Need To Know To Run Or Edit The Code](#what-i-need-to-know-to-run-or-edit-the-code)
+
 ## Ability Score
 
 Player Book v3.5
@@ -16,16 +25,16 @@ Player Book v3.5
 
 This is the signatures of the methods that set the rules.
 
-* ruleRoll4D6
+* **ruleRoll4D6**
   * Standard rule like mentioned in the Player Book v3.5
   * Roll 4d6 and discard the lower value. Sum the total of the three values
-* ruleRoll1D10Plus8
+* **ruleRoll1D10Plus8**
   * Roll 1d10 and plus 8
-* ruleRoll1D8Plus10
+* **ruleRoll1D8Plus10**
   * Roll 1d8 and plus 10
-* ruleRoll3D6
-  * Experimental
-  * Run 3d6 7 times. Get the highest number generate by the triple
+* **ruleRoll3D6**
+  * *Experimental*
+  * Run 3d6 7 times. Sum the triple. Return the highest value of the seven.
 
 ## Source Code Explained
 
@@ -38,7 +47,7 @@ The code is flexible with 3 constants, see below.
 * RULE
   * Defines the rules to generate the attributes, accept the signature of the rule method. Mentioned in [Generator Rules](#generator-rules)
 
-## How to run the code
+## How To Run The Code
 
 Execute the steps below.
 
@@ -48,7 +57,19 @@ cd <folder>
 node .
 ```
 
-## How edit the code
+## How Edit The Code
 
 You can edit the code in the file `index.js`.
 The other files is for historical purpose and can be discarded later.
+
+## What I Need To Know To Run Or Edit The Code
+
+* NodeJS
+* JavaScript
+* Terminal:
+  * Windows: Windows Terminal, Powershell, Git Bash
+  * Linux/Mac: a terminal like bash or zshell
+* Git
+* SOLID
+  * Single Responsability
+* Clean Code
