@@ -52,7 +52,7 @@ The code is flexible with 3 constants, see below.
 Execute the steps below.
 
 ```bash
-git clone <folder>
+git clone git@github.com:tufcoder/dnd-attributes-generator.git <folder>
 cd <folder>
 node .
 ```
