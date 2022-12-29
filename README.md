@@ -3,7 +3,7 @@
 This project is practical. In it I apply the **Single Responsibility** principle of SOLID and **Clean Code**.
 These smaller projects are great for training.
 
-## Content
+## Table of Contents
 
 * [Ability Score](#ability-score)
 * [Generator Rules](#generator-rules)
@@ -71,5 +71,5 @@ The other files is for historical purpose and can be discarded later.
   * Linux/Mac: a terminal like bash or zshell
 * Git
 * SOLID
-  * Single Responsability
+  * Single Responsibility
 * Clean Code
